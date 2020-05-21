@@ -16,12 +16,8 @@ ActiveRecord::Schema.define(version: 2020_05_19_150900) do
   enable_extension "plpgsql"
 
   create_table "tasks", force: :cascade do |t|
-    t.string "task_name", null: false
-    t.string "task_details", null: false
-    t.string "deadline", null: false
-    t.string "status", null: false
-    t.string "priority", null: false
-    t.string "author", null: false
+    t.string "title", null: false
+    t.string "content", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
