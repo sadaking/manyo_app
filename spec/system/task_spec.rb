@@ -6,7 +6,11 @@ RSpec.describe 'タスク管理機能', type: :system do
       # テストコードを it '~' do end ブロックの中に記載する
       it '作成済みのタスクが表示される' do
         # テストで使用するためのタスクを作成
-        user = User.create(name: 'name', email: 'email', password: 'sadaki')
+        user = User.create(name: 'name', email: 'example@gmail.com', password: 'sadaki')
+        visit new_session_path
+        fill_in ‘email’, with: ‘example@gmail.com’
+        fill_in ‘password’, with: ‘sadaki’
+　　　　 click_button ‘Log in’
         task = Task.create(title: 'task', content: 'content',user_id: user.id)
 
         # タスク一覧ページに遷移
